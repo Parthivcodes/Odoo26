@@ -2,8 +2,9 @@
 
 **REDLINE** is a centralized, smart transport operations platform designed to digitize fleet management for logistics companies. It replaces manual spreadsheets with a single system covering the full lifecycle of transport operations.
 
-![REDLINE Dashboard](https://github.com/user-attachments/assets/demo-image) 
-*(Add a screenshot of your dashboard here)*
+<img width="1882" height="898" alt="image" src="https://github.com/user-attachments/assets/adb44fee-44a1-421a-b9b9-78fe49ea2565" />
+ 
+
 
 ## 🚀 Features
 
