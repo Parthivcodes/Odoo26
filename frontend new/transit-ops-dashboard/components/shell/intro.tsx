@@ -16,8 +16,8 @@ export function Intro() {
   const [lineCount, setLineCount] = useState(0)
 
   useEffect(() => {
-    if (sessionStorage.getItem('redline-intro')) return
-    sessionStorage.setItem('redline-intro', '1')
+    // if (sessionStorage.getItem('redline-intro')) return
+    // sessionStorage.setItem('redline-intro', '1')
     setShow(true)
 
     const lineTimers = BOOT_LINES.map((_, i) =>

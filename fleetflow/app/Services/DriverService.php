@@ -60,7 +60,7 @@ class DriverService
 
     public function incrementTrips(Driver $driver): void
     {
-        $driver->increment('total_trips');
+        $driver->increment('trips_completed');
     }
 
     public function getPerformanceSummary(Driver $driver): array
@@ -71,7 +71,7 @@ class DriverService
         $fuelEfficiency = $totalFuel > 0 ? round($totalDistance / $totalFuel, 2) : 0;
 
         return [
-            'total_trips' => $driver->total_trips,
+            'total_trips' => $driver->trips_completed,
             'completed_trips' => $completedTrips,
             'total_distance_km' => round($totalDistance, 2),
             'total_fuel_liters' => round($totalFuel, 2),

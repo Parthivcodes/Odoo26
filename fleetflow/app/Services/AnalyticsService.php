@@ -135,7 +135,7 @@ class AnalyticsService
     public function getDriverRankings(int $limit = 10): array
     {
         return Driver::with('user')
-            ->orderByDesc('total_trips')
+            ->orderByDesc('trips_completed')
             ->orderByDesc('safety_score')
             ->limit($limit)
             ->get()
@@ -143,7 +143,7 @@ class AnalyticsService
             return [
                 'id' => $driver->id,
                 'name' => $driver->user->name,
-                'total_trips' => $driver->total_trips,
+                'total_trips' => $driver->trips_completed,
                 'safety_score' => $driver->safety_score,
                 'status' => $driver->status->value,
                 'license_valid' => $driver->hasValidLicense(),

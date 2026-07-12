@@ -165,7 +165,12 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
   
   if (pathname === '/login' || pathname === '/register') {
-    return <main>{children}</main>
+    return (
+      <>
+        <Intro />
+        <main>{children}</main>
+      </>
+    )
   }
 
   return (

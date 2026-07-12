@@ -124,9 +124,7 @@ class TripService
                 $trip->driver->update(['status' => DriverStatus::ON_TRIP]);
                 break;
 
-            case TripStatus::IN_PROGRESS:
-                $updateData['started_at'] = now();
-                break;
+
 
             case TripStatus::COMPLETED:
                 $updateData['completed_at'] = now();
@@ -135,12 +133,12 @@ class TripService
                 // Free up vehicle and driver
                 $trip->vehicle->update(['status' => VehicleStatus::AVAILABLE]);
                 $trip->driver->update(['status' => DriverStatus::ON_DUTY]);
-                $trip->driver->increment('total_trips');
+                $trip->driver->increment('trips_completed');
                 break;
 
             case TripStatus::CANCELLED:
                 // Free up vehicle and driver if they were assigned
-                if (in_array($trip->status, [TripStatus::DISPATCHED, TripStatus::IN_PROGRESS])) {
+                if (in_array($trip->status, [TripStatus::DISPATCHED])) {
                     $trip->vehicle->update(['status' => VehicleStatus::AVAILABLE]);
                     $trip->driver->update(['status' => DriverStatus::ON_DUTY]);
                 }

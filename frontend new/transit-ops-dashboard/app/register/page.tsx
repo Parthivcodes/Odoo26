@@ -40,7 +40,7 @@ export default function RegisterPage() {
     try {
       await register(name, email, role, password)
     } catch (err: any) {
-      console.error(err)
+      // Error is handled and displayed by auth context
     } finally {
       setIsSubmitting(false)
     }

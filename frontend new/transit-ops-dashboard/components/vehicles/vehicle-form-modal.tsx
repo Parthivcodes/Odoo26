@@ -110,7 +110,8 @@ export function VehicleFormModal({ isOpen, onClose, vehicleToEdit }: VehicleForm
 
       const data = await res.json()
       if (!res.ok) {
-        throw new Error(data.message || 'Failed to save vehicle')
+        const errorDetails = data.data ? Object.values(data.data).flat().join(' | ') : ''
+        throw new Error(errorDetails ? `${data.message}: ${errorDetails}` : data.message || 'Failed to save vehicle')
       }
 
       refetch()
